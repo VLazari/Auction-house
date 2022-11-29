@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/dist/css/style.css" />
+		<title>iBuy</title>
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-expand-lg bg-light mb-3">
+				<div class="container-fluid">
+					<a class="logo d-flex align-items-center" href="index.html">
+						<div class="ps-3 pe-5 text-light fs-2 fw-bold bg-danger">iBuy</div>
+						<img src="./img/Logo.jpg" class="rounded-circle"></img>
+					</a>
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav mx-auto mb-2 mb-lg-0 d-flex align-items-center">
+							<li class="nav-item mx-auto px-3 mb-2 mb-lg-0">
+								<a class="nav-link border-bottom border-4 border-danger py-0 px-0 text-dark fw-bold" aria-current="page" href="#">Home</a>
+							</li>
+							<li class="nav-item mx-auto px-3 mb-2 mb-lg-0">
+								<a class="nav-link border-bottom border-light border-4 py-0 px-0 text-dark fw-bold" aria-current="page" href="#">Profile</a>
+							</li>
+							<li class="nav-item mx-auto px-3 mb-2 mb-lg-0">
+								<a class="nav-link border-bottom border-light border-4 border-danger py-0 px-0 text-dark fw-bold" aria-current="page" href="#">Home</a>
+							</li>
+							<li class="nav-item mx-auto px-3 mb-2 mb-lg-0">
+								<a class="nav-link border-bottom border-light border-4 border-danger py-0 px-0 text-dark fw-bold" aria-current="page" href="#">Home</a>
+							</li>
+						</ul>
+						<div class="d-flex justify-content-center">
+						<a class="px-4 py-1 bg-success rounded-pill text-light">Login</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<form class="d-flex " role="search">
+			<input class="form-control me-2" type="search" placeholder="Search for lot name..." aria-label="Search" />
+			<button class="btn btn-outline-secondary" type="submit">Search</button>
+		</form>
+		</header>
+		<main>
+
+		</main>
+		<!-- <main class="main-container mx-auto">
+			 Navigation bar 
+			<header class="sticky-top">
+				<div class="container-fluid fs-3 my-5 text-center"><h1>Moment</h1></div>
+			</header>
+			 Login 
+			<div class="card text-center m-5">
+				<div class="card-header">Login</div>
+				<div class="card-body">
+					<form id="login" class="d-flex flex-column">
+						<div class="d-flex justify-content-right">
+							<div class="mb-3 mx-auto">
+								<label for="email" class="form-label">Email address</label>
+								<input
+									type="email"
+									class="form-control"
+									size="25"
+									id="email"
+									required
+									placeholder="username@noroff.no"
+									pattern="\w+@noroff\.no|\w+@stud.noroff\.no"
+									title="Please provide only Noroff e-mail address. The email must not contain punctuation symbols apart from underscore (_)."
+								/>
+							</div>
+						</div>
+						<div class="d-flex">
+							<div class="mb-3 mx-auto">
+								<label for="password" class="form-label">Password</label>
+								<input type="password" class="form-control" id="password" required minlength="8" size="25" />
+							</div>
+						</div>
+						<div id="login-error" class="d-none">
+							<div class="mb-3 mx-auto">
+								<p class="text-danger">Incorrect user name or password</p>
+							</div>
+						</div>
+						<hr />
+						<div class="d-flex mx-auto">
+							<button type="submit" class="btn btn-primary mx-4">Login</button>
+							 Button trigger modal 
+							<button type="button" class="btn btn-primary mx-4" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign up</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			 Sign up modal 
+			<div
+				class="modal fade"
+				id="signUpModal"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="staticBackdropLabel"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="staticBackdropLabel">Create account</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div id="account-created" class="d-none flex-column p-3">
+							<h3 class="text-primary">Welcome to our family &#128578</h3>
+							<h5 class="text-primary">Your new account was created.</h5>
+							<h5 class="text-primary">You can now login.</h5>
+						</div>
+						<form id="sign-up" class="d-flex flex-column">
+							<div class="modal-body">
+								<div id="err-display" class="d-none flex-column align-items-center error">
+									<p>Error, please try again</p>
+									<p id="register-err"></p>
+								</div>
+								<div class="d-flex">
+									<div class="mb-3 mx-auto">
+										<label for="name" class="form-label">Name</label>
+										<input type="text" class="form-control" id="name" required minlength="3" size="25" />
+									</div>
+								</div>
+								<div class="d-flex justify-content-right">
+									<div class="mb-3 mx-auto">
+										<label for="register-email" class="form-label">Email address</label>
+										<input
+											type="email"
+											class="form-control"
+											size="25"
+											id="register-email"
+											required
+											placeholder="username@[stud.norof.no or noroff.no]"
+											pattern="\w+@noroff\.no|\w+@stud.noroff\.no"
+											title="Please provide only Noroff e-mail address. The email must not contain punctuation symbols apart from underscore (_)."
+										/>
+									</div>
+								</div>
+								<div class="d-flex">
+									<div class="mb-3 mx-auto">
+										<label for="register-password" class="form-label">Password</label>
+										<input type="password" class="form-control" id="register-password" required minlength="8" size="25" />
+									</div>
+								</div>
+								<div class="d-flex">
+									<div class="mb-3 mx-auto">
+										<label for="avatar" class="form-label">Avatar</label>
+										<input type="text" class="form-control" id="avatar" size="25" />
+									</div>
+								</div>
+								<div class="d-flex">
+									<div class="mb-3 mx-auto">
+										<label for="banner" class="form-label">Banner</label>
+										<input type="text" class="form-control" id="banner" size="25" />
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								<button type="submit" class="btn btn-primary">Sign up</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</main> -->
+		<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="js/index.mjs" type="module"></script>
+	</body>
+</html>

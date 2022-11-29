@@ -1,0 +1,39 @@
+// Bootstrap variables
+@import "variables.scss";
+
+// Bootstrap styles
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+body{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  margin: 0 auto;
+  max-width: 1200px;
+  font-family: 'Roboto', sans-serif;
+}
+
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  cursor: pointer;
+}
+
+.logo{
+  div{
+    border-radius: 10px;
+    font-family: 'Raleway', sans-serif;
+  }
+  img{
+    width: 60px;
+    position: relative;
+    left: -30px;
+  }
+}
+
+  .nav-link{
+    letter-spacing: .1rem;
+  }
+
