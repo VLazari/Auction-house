@@ -47,140 +47,46 @@
 							</li>
 						</ul>
 						<div class="d-flex justify-content-center">
-						<a class="px-4 py-1 bg-success rounded-pill text-light">Login</a>
+							<a id="login-btn" class="px-4 py-1 bg-success rounded-pill text-light">Login</a>
+						</div>
 					</div>
 				</div>
-			</div>
-		</nav>
-		<form class="d-flex " role="search">
-			<input class="form-control me-2" type="search" placeholder="Search for lot name..." aria-label="Search" />
-			<button class="btn btn-outline-secondary" type="submit">Search</button>
-		</form>
+			</nav>
+			<form class="d-flex " role="search">
+				<input class="form-control me-2" type="search" placeholder="Search for lot name..." aria-label="Search" />
+				<button class="btn btn-outline-secondary" type="submit">Search</button>
+			</form>
 		</header>
 		<main>
-
-		</main>
-		<!-- <main class="main-container mx-auto">
-			 Navigation bar 
-			<header class="sticky-top">
-				<div class="container-fluid fs-3 my-5 text-center"><h1>Moment</h1></div>
-			</header>
-			 Login 
-			<div class="card text-center m-5">
-				<div class="card-header">Login</div>
-				<div class="card-body">
-					<form id="login" class="d-flex flex-column">
-						<div class="d-flex justify-content-right">
-							<div class="mb-3 mx-auto">
-								<label for="email" class="form-label">Email address</label>
-								<input
-									type="email"
-									class="form-control"
-									size="25"
-									id="email"
-									required
-									placeholder="username@noroff.no"
-									pattern="\w+@noroff\.no|\w+@stud.noroff\.no"
-									title="Please provide only Noroff e-mail address. The email must not contain punctuation symbols apart from underscore (_)."
-								/>
-							</div>
+			<section class="d-flex justify-content-around flex-wrap my-3">
+				<div class="item-container border border-secondary rounded p-2 mb-5">
+					<div class="bg-image border border-secondary rounded"></div>
+					<h4 class="my-3">This is the item name very long name</h4>
+					<div class="separator-x col-11 mx-auto my-3 border-secondary"></div>
+					<div class="d-flex justify-content-between">
+						<div>
+						<p class="m-2">Last bid:</p>
+						<p class="m-2 text-success">$ 400</p>
 						</div>
-						<div class="d-flex">
-							<div class="mb-3 mx-auto">
-								<label for="password" class="form-label">Password</label>
-								<input type="password" class="form-control" id="password" required minlength="8" size="25" />
-							</div>
+						<div class="separator-y border-secondary my-2"></div>
+						<div class="text-end">
+						<p class="m-2">Bider:</p>
+						<p class="m-2 text-secondary">vior_1273</p>
 						</div>
-						<div id="login-error" class="d-none">
-							<div class="mb-3 mx-auto">
-								<p class="text-danger">Incorrect user name or password</p>
-							</div>
-						</div>
-						<hr />
-						<div class="d-flex mx-auto">
-							<button type="submit" class="btn btn-primary mx-4">Login</button>
-							 Button trigger modal 
-							<button type="button" class="btn btn-primary mx-4" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign up</button>
-						</div>
-					</form>
-				</div>
-			</div>
-			 Sign up modal 
-			<div
-				class="modal fade"
-				id="signUpModal"
-				data-bs-backdrop="static"
-				data-bs-keyboard="false"
-				tabindex="-1"
-				aria-labelledby="staticBackdropLabel"
-				aria-hidden="true"
-			>
-				<div class="modal-dialog modal-dialog-centered">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="staticBackdropLabel">Create account</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						</div>
-						<div id="account-created" class="d-none flex-column p-3">
-							<h3 class="text-primary">Welcome to our family &#128578</h3>
-							<h5 class="text-primary">Your new account was created.</h5>
-							<h5 class="text-primary">You can now login.</h5>
-						</div>
-						<form id="sign-up" class="d-flex flex-column">
-							<div class="modal-body">
-								<div id="err-display" class="d-none flex-column align-items-center error">
-									<p>Error, please try again</p>
-									<p id="register-err"></p>
-								</div>
-								<div class="d-flex">
-									<div class="mb-3 mx-auto">
-										<label for="name" class="form-label">Name</label>
-										<input type="text" class="form-control" id="name" required minlength="3" size="25" />
-									</div>
-								</div>
-								<div class="d-flex justify-content-right">
-									<div class="mb-3 mx-auto">
-										<label for="register-email" class="form-label">Email address</label>
-										<input
-											type="email"
-											class="form-control"
-											size="25"
-											id="register-email"
-											required
-											placeholder="username@[stud.norof.no or noroff.no]"
-											pattern="\w+@noroff\.no|\w+@stud.noroff\.no"
-											title="Please provide only Noroff e-mail address. The email must not contain punctuation symbols apart from underscore (_)."
-										/>
-									</div>
-								</div>
-								<div class="d-flex">
-									<div class="mb-3 mx-auto">
-										<label for="register-password" class="form-label">Password</label>
-										<input type="password" class="form-control" id="register-password" required minlength="8" size="25" />
-									</div>
-								</div>
-								<div class="d-flex">
-									<div class="mb-3 mx-auto">
-										<label for="avatar" class="form-label">Avatar</label>
-										<input type="text" class="form-control" id="avatar" size="25" />
-									</div>
-								</div>
-								<div class="d-flex">
-									<div class="mb-3 mx-auto">
-										<label for="banner" class="form-label">Banner</label>
-										<input type="text" class="form-control" id="banner" size="25" />
-									</div>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-								<button type="submit" class="btn btn-primary">Sign up</button>
-							</div>
-						</form>
 					</div>
+					<h5 class="text-center mt-2">Ends in:</h5>
+					<div class="d-flex justify-content-around text-danger">			
+						<span><span>10</span> D</span>
+						<span>:</span>
+						<span><span>10</span> H</span>
+						<span>:</span>
+						<span><span>10</span> M</span>
+						<span>:</span>
+						<span><span>10</span> S</span>
+					</div>
+					<button class="bg-danger w-75 py-2 rounded text-light">BID</button>
 				</div>
-			</div>
-		</main> -->
-		
+			</section>
+		</main>
 	</body>
 </html>

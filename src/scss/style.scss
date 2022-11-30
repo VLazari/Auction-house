@@ -11,6 +11,11 @@ body{
   margin: 0 auto;
   max-width: 1200px;
   font-family: 'Roboto', sans-serif;
+  background-color: #180A0A;
+}
+
+main{
+  color: white;
 }
 
 a{
@@ -37,3 +42,25 @@ a:hover{
     letter-spacing: .1rem;
   }
 
+  .item-container{
+    width: 19rem;
+    .bg-image{
+      min-width: 100%;
+      height: 10rem;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url("/img/Logo.jpg");
+    }
+    .separator-x{
+      border-top: 3px dotted;
+    }
+    .separator-y{
+      border-right: 3px dotted;
+    }
+    button{
+      position: relative;
+      top: 2rem;
+      left: 12%;
+    }
+  }
