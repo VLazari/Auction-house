@@ -37,7 +37,7 @@
 								<a class="nav-link border-bottom border-4 border-danger py-0 px-0 text-dark fw-bold" aria-current="page" href="#">Home</a>
 							</li>
 							<li class="nav-item mx-auto px-3 mb-2 mb-lg-0">
-								<a class="nav-link border-bottom border-light border-4 py-0 px-0 text-dark fw-bold" aria-current="page" href="#">Profile</a>
+								<a class="nav-link border-bottom border-light border-4 py-0 px-0 text-dark fw-bold" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="/pages/profile.html">Profile</a>
 							</li>
 							<li class="nav-item mx-auto px-3 mb-2 mb-lg-0">
 								<a class="nav-link border-bottom border-light border-4 border-danger py-0 px-0 text-dark fw-bold" aria-current="page" href="#">Home</a>
@@ -47,7 +47,9 @@
 							</li>
 						</ul>
 						<div class="d-flex justify-content-center">
-							<a id="login-btn" class="px-4 py-1 bg-success rounded-pill text-light">Login</a>
+							<button type="button" class="btn btn-success text-light" data-bs-toggle="modal" data-bs-target="#loginModal">
+								Login
+							</button>
 						</div>
 					</div>
 				</div>
@@ -58,25 +60,25 @@
 			</form>
 		</header>
 		<main>
-			<section class="d-flex justify-content-around flex-wrap my-3">
-				<div class="item-container border border-secondary rounded p-2 mb-5">
+			<section id="listings" class="d-flex justify-content-around flex-wrap my-3">
+				<!-- <div class="item-container border border-secondary rounded p-2 mb-5">
 					<div class="bg-image border border-secondary rounded"></div>
-					<h4 class="my-3">This is the item name very long name</h4>
+					<h5 class="my-3">This is the item name</h5>
 					<div class="separator-x col-11 mx-auto my-3 border-secondary"></div>
 					<div class="d-flex justify-content-between">
 						<div>
-						<p class="m-2">Last bid:</p>
-						<p class="m-2 text-success">$ 400</p>
+							<p class="m-2">Last bid:</p>
+							<p class="m-2 text-success">$ 400</p>
 						</div>
 						<div class="separator-y border-secondary my-2"></div>
 						<div class="text-end">
-						<p class="m-2">Bider:</p>
-						<p class="m-2 text-secondary">vior_1273</p>
+							<p class="m-2">Bider:</p>
+							<p class="m-2 text-secondary">vior_1273</p>
 						</div>
 					</div>
-					<h5 class="text-center mt-2">Ends in:</h5>
+					<h6 class="text-center mt-2">Ends in:</h6>
 					<div class="d-flex justify-content-around text-danger">			
-						<span><span>10</span> D</span>
+						<span>10 D</span>
 						<span>:</span>
 						<span><span>10</span> H</span>
 						<span>:</span>
@@ -85,8 +87,109 @@
 						<span><span>10</span> S</span>
 					</div>
 					<button class="bg-danger w-75 py-2 rounded text-light">BID</button>
-				</div>
+				</div> -->
 			</section>
+			<!-- Login modal -->
+			<div class="modal fade" id="loginModal" aria-hidden="true" aria-labelledby="loginModalLabel" tabindex="-1">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="loginModalLabel">Login</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form id="login-form" class="d-flex flex-column gap-3" action="data-bs-dismiss='modal'">
+								<div class="d-flex justify-content-right">
+									<div class="mx-auto">
+										<label for="email" class="form-label">Email address</label>
+										<input
+											type="email"
+											class="form-control"
+											size="25"
+											id="login-email"
+											required
+											placeholder="username@noroff.no"
+											pattern="\w+@noroff\.no|\w+@stud.noroff\.no"
+											title="Please provide a valid Noroff e-mail address."
+										/>
+									</div>
+								</div>
+								<div class="d-flex">
+									<div class="mx-auto mb-2">
+										<label for="password" class="form-label">Password</label>
+										<input type="password" class="form-control" id="login-password" required minlength="8" size="25" />
+									</div>
+								</div>
+								<div id="login-error" class="d-none mx-auto">
+									<div class="mb-3 mx-auto">
+										<p class="text-danger">Incorrect user name or password</p>
+									</div>
+								</div>
+								<div class="modal-footer d-flex justify-content-around">
+									<button type="submit" value="submit" class="btn btn-success text-light">Login</button>
+									<button type="button" class="btn btn-primary text-light" data-bs-target="#registerModal" data-bs-toggle="modal">Register</button>
+								</div>
+							</form>
+						</div>						
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="registerModal" aria-hidden="true" aria-labelledby="registerModalLabel" tabindex="-1">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5 text-dark" id="registerModalLabel">Register</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form id="register-form" class="d-flex flex-column">
+								<div class="modal-body">
+									<div id="err-display" class="d-none flex-column align-items-center error">
+										<p>Error, please try again</p>
+										<p id="register-err"></p>
+									</div>
+									<div class="d-flex">
+										<div class="mb-3 mx-auto">
+											<label for="name" class="form-label">Name</label>
+											<input type="text" class="form-control" id="name" required minlength="3" size="25" />
+										</div>
+									</div>
+									<div class="d-flex justify-content-right">
+										<div class="mb-3 mx-auto">
+											<label for="register-email" class="form-label">Email address</label>
+											<input
+												type="email"
+												class="form-control"
+												size="25"
+												id="register-email"
+												required
+												placeholder="username@[stud.norof.no or noroff.no]"
+												pattern="\w+@noroff\.no|\w+@stud.noroff\.no"
+												title="Only Noroff e-mail address accepted."
+											/>
+										</div>
+									</div>
+									<div class="d-flex">
+										<div class="mb-3 mx-auto">
+											<label for="register-password" class="form-label">Password</label>
+											<input type="password" class="form-control" id="register-password" required minlength="8" size="25" />
+										</div>
+									</div>
+									<div class="d-flex">
+										<div class="mb-3 mx-auto">
+											<label for="avatar" class="form-label">Avatar URL</label>
+											<input type="text" class="form-control" id="avatar" size="25" />
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer mx-auto">
+									<button type="submit" class="btn btn-primary">Register</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 		</main>
 	</body>
 </html>
