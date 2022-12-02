@@ -47,16 +47,18 @@
 							</li>
 						</ul>
 						<div class="d-flex justify-content-center">
-							<button type="button" class="btn btn-success text-light" data-bs-toggle="modal" data-bs-target="#loginModal">
+							<button type="button" id="login-btn" class="btn btn-success text-light" data-bs-toggle="modal" data-bs-target="#loginModal">
 								Login
+							</button>
+							<button type="button" id="logout-btn" class="d-none btn btn-danger text-light">
+								Logout
 							</button>
 						</div>
 					</div>
 				</div>
 			</nav>
-			<form class="d-flex " role="search">
-				<input class="form-control me-2" type="search" placeholder="Search for lot name..." aria-label="Search" />
-				<button class="btn btn-outline-secondary" type="submit">Search</button>
+			<form>
+				<input id="search" class="form-control me-2" placeholder="Search for a lot title..." />
 			</form>
 		</header>
 		<main>
@@ -144,14 +146,13 @@
 						<div class="modal-body">
 							<form id="register-form" class="d-flex flex-column">
 								<div class="modal-body">
-									<div id="err-display" class="d-none flex-column align-items-center error">
+									<div id="err-display" class="d-none flex-column align-items-center error text-danger">
 										<p>Error, please try again</p>
-										<p id="register-err"></p>
 									</div>
 									<div class="d-flex">
 										<div class="mb-3 mx-auto">
 											<label for="name" class="form-label">Name</label>
-											<input type="text" class="form-control" id="name" required minlength="3" size="25" />
+											<input type="text" class="form-control" id="name" required pattern="\w{3,10}" size="25" />
 										</div>
 									</div>
 									<div class="d-flex justify-content-right">

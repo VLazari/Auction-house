@@ -13,3 +13,17 @@ export function countdown(date, days, hours, minutes, seconds) {
 	minutes.innerText = `${Math.floor((timeLength % hour) / min)} M`;
 	seconds.innerText = `${Math.floor((timeLength % min) / sec)} S`;
 }
+
+export function exclExpired(allListings) {
+	const newListings = allListings.map((e) => e);
+	for (let i = 0; i < newListings.length; i++) {
+		const endDate = new Date(newListings[i].endsAt);
+		const currentDate = new Date().getTime();
+		const time = endDate - currentDate;
+		if (time < 1000) {
+			newListings.splice(i, 1);
+			i--;
+		}
+	}
+	return newListings;
+}

@@ -1,57 +1,64 @@
 import * as auth from "/src/js/auth/auth.mjs";
-import { load } from "/src/js/storage/storage.mjs";
 import { baseUrl } from "/src/js/constants.mjs";
+import { displayList } from "/src/js/elements/listing.mjs";
+import { getData } from "/src/js/api/get_listing.mjs";
+import { countdown, exclExpired } from "/src/js/timer.mjs";
+import { searchList } from "./src/js/search/search.mjs";
+const loginModal = new bootstrap.Modal("#loginModal");
+const url = `${baseUrl}/listings?_seller=true&_bids=true`;
+const allList = await getData(url);
+const validList = exclExpired(allList);
+displayList(validList);
 
-import apiKey from "/apikey.mjs";
-console.log(apiKey);
-
-// localStorage.clear();
-
-const loginBtn = document.getElementById("login-btn");
+function status() {
+	if (auth.isLogin()) auth.loginVisibility(true);
+}
+status();
 
 function regUser() {
 	const register = document.getElementById("register-form");
+	const registerModal = new bootstrap.Modal("#registerModal");
 	register.addEventListener("submit", (event) => {
 		event.preventDefault();
-		auth.registerUser();
+		const isRegister = auth.registerUser();
+		if (isRegister) {
+			registerModal.hide();
+			loginModal.show();
+		}
 	});
 }
 regUser();
 
 function logUser() {
-	const login = document.getElementById("login-form");
-	const loginModal = new bootstrap.Modal("#loginModal");
+	const loginForm = document.getElementById("login-form");
 	const loginError = document.getElementById("login-error");
-
-	login.addEventListener("submit", async (event) => {
+	loginForm.addEventListener("submit", async (event) => {
 		const email = document.getElementById("login-email");
 		const pass = document.getElementById("login-password");
 		event.preventDefault();
-
 		const status = await auth.loginUser(email.value, pass.value);
-
 		if (!status) {
 			loginError.classList.remove("d-none");
 		} else {
+			auth.loginVisibility(true);
 			loginModal.hide();
 		}
 	});
 }
 logUser();
 
-import { displayList } from "/src/js/elements/listing.mjs";
-import { getData } from "/src/js/api/get_listing.mjs";
-const url = `${baseUrl}/listings?_seller=true&_bids=true`;
-
-const data = await getData(url);
-displayList(data);
-
-import { countdown } from "/src/js/timer.mjs";
-const itemTimer = document.querySelectorAll(".timer");
-
-function test() {
+function timer() {
+	const itemTimer = document.querySelectorAll(".timer");
 	itemTimer.forEach((e) => {
 		countdown(e.dataset.expDate, e.childNodes[0], e.childNodes[2], e.childNodes[4], e.childNodes[6]);
 	});
 }
-setInterval(test, 1000);
+setInterval(timer, 1000);
+
+auth.logoutUser();
+
+searchList(validList);
+
+import { load } from "/src/js/storage/storage.mjs";
+const a = load("profile");
+console.log(a);

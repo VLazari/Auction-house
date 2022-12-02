@@ -2,12 +2,12 @@ import { createElement } from "/src/js/elements/element-builder.mjs";
 
 export function displayList(data) {
 	const container = document.getElementById("listings");
+	container.innerHTML = "";
 	data.forEach((item) => {
-		const endDate = new Date(item.endsAt);
-		const currentDate = new Date().getTime();
-		const time = endDate - currentDate;
-		if (time < 1000) return;
-		const divWrap = createElement("div", "item-container border border-secondary rounded p-2 my-5 d-flex flex-column");
+		const divWrap = createElement("a", "item-container border border-secondary rounded p-2 my-5 d-flex flex-column");
+		divWrap.href = `/pages/listing.html?id=${item.id}`;
+		divWrap.dataset.bsToggle = "modal";
+		divWrap.dataset.bsTarget = "#loginModal";
 		container.appendChild(divWrap);
 
 		const divImg = createElement("div", "bg-image border border-secondary rounded");
@@ -15,7 +15,7 @@ export function displayList(data) {
 		divImg.style.backgroundImage = `url(${img})`;
 		divWrap.appendChild(divImg);
 
-		const description = createElement("h5", "my-3 flex-grow-1 d-flex align-items-center");
+		const description = createElement("h6", "my-3 flex-grow-1 d-flex align-items-center");
 		description.innerText = item.title;
 		divWrap.appendChild(description);
 
@@ -32,14 +32,14 @@ export function displayList(data) {
 		bidPrice.innerText = "Last bid:";
 		divBid.appendChild(bidPrice);
 
-		const price = createElement("p", "m-2 text-success fw-bold");
+		const price = createElement("p", "m-2 text-danger fw-bold");
 		const n = item.bids.length;
 		const amount = n === 0 ? 0 : item.bids[n - 1].amount;
 		price.innerText = `CRD: ${amount}`;
 		divBid.appendChild(price);
 
-		const borderY = createElement("div", "separator-y border-secondary my-2");
-		divData.appendChild(borderY);
+		// const borderY = createElement("div", "separator-y border-secondary my-2");
+		// divData.appendChild(borderY);
 
 		const divName = createElement("div", " text-end");
 		divData.appendChild(divName);
@@ -48,20 +48,22 @@ export function displayList(data) {
 		pName.innerText = "Bider:";
 		divName.appendChild(pName);
 
-		const name = createElement("div", "m-2  text-secondary fw-bold");
+		const name = createElement("div", "m-2  text-danger fw-bold");
 		name.innerText = n === 0 ? "No bids" : item.bids[n - 1].bidderName;
 		divName.appendChild(name);
+
+		const border = createElement("div", "separator-x col-11 mx-auto my-3 border-secondary");
+		divWrap.appendChild(border);
 
 		const timeText = createElement("h6", "text-center mt-2");
 		timeText.innerText = "Ends in:";
 		divWrap.appendChild(timeText);
 
-		const divTimer = createElement("div", "timer d-flex justify-content-around text-danger");
+		const divTimer = createElement("div", "timer d-flex justify-content-around text-danger p-2");
 		divTimer.dataset.expDate = item.endsAt;
 		divWrap.appendChild(divTimer);
 
 		const days = createElement("span", "");
-		// days.innerText = `10 D`;
 		divTimer.appendChild(days);
 
 		const separator1 = createElement("span", "");
@@ -69,7 +71,6 @@ export function displayList(data) {
 		divTimer.appendChild(separator1);
 
 		const hours = createElement("span", "");
-		// hours.innerText = `10 H`;
 		divTimer.appendChild(hours);
 
 		const separator2 = createElement("span", "");
@@ -77,7 +78,6 @@ export function displayList(data) {
 		divTimer.appendChild(separator2);
 
 		const minutes = createElement("span", "");
-		// minutes.innerText = `10 M`;
 		divTimer.appendChild(minutes);
 
 		const separator3 = createElement("span", "");
@@ -85,13 +85,6 @@ export function displayList(data) {
 		divTimer.appendChild(separator3);
 
 		const seconds = createElement("span", "");
-		// seconds.innerText = `10 S`;
 		divTimer.appendChild(seconds);
-
-		// setInterval(countdown(item.endsAt, days.innerText, hours.innerText, minutes.innerText, seconds.innerText), 1000);
-
-		const bidButton = createElement("button", "bg-danger w-75 py-2 rounded text-light");
-		bidButton.innerText = "Bid";
-		divWrap.appendChild(bidButton);
 	});
 }

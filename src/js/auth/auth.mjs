@@ -58,11 +58,23 @@ export async function registerUser() {
 	const response = await fetch(`${baseUrl}/auth/register`, registerOptions);
 	if (response.status != 201) {
 		const displayErr = document.getElementById("err-display");
-		document.getElementById("register-err").innerHTML = response.error;
 		displayErr.classList.remove("d-none");
 		displayErr.classList.add("d-flex");
-		return null;
+		return false;
 	}
+	return true;
+}
+
+export function loginVisibility(isLogin) {
+	const loginBtn = document.getElementById("login-btn");
+	const logoutBtn = document.getElementById("logout-btn");
+	const loginRedirection = document.querySelectorAll('[data-bs-target="#loginModal"]');
+	loginBtn.classList.add("d-none");
+	logoutBtn.classList.remove("d-none");
+	loginRedirection.forEach((element) => {
+		delete element.dataset.bsTarget;
+		delete element.dataset.bsToggle;
+	});
 }
 
 export function isLogin() {
@@ -70,4 +82,12 @@ export function isLogin() {
 		return true;
 	}
 	return false;
+}
+
+export function logoutUser() {
+	const logoutBtn = document.getElementById("logout-btn");
+	logoutBtn.addEventListener("click", (event) => {
+		localStorage.clear();
+		location.reload();
+	});
 }
