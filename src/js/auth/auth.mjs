@@ -69,12 +69,19 @@ export function loginVisibility(isLogin) {
 	const loginBtn = document.getElementById("login-btn");
 	const logoutBtn = document.getElementById("logout-btn");
 	const loginRedirection = document.querySelectorAll('[data-bs-target="#loginModal"]');
+	const addListing = document.getElementById("sell-modal-toggle");
+	const avatar = document.getElementById("sAvatar");
+	const profile = load("profile");
+
+	avatar.src = profile.avatar;
 	loginBtn.classList.add("d-none");
 	logoutBtn.classList.remove("d-none");
 	loginRedirection.forEach((element) => {
 		delete element.dataset.bsTarget;
 		delete element.dataset.bsToggle;
 	});
+	addListing.dataset.bsTarget = "#sellModal";
+	addListing.dataset.bsToggle = "modal";
 }
 
 export function isLogin() {

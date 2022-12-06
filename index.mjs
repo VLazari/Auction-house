@@ -2,13 +2,13 @@ import * as auth from "/src/js/auth/auth.mjs";
 import { baseUrl } from "/src/js/constants.mjs";
 import { displayList } from "/src/js/elements/listing.mjs";
 import { getData } from "/src/js/api/get_listing.mjs";
-import { countdown, exclExpired } from "/src/js/timer.mjs";
+import { countdown } from "/src/js/timer.mjs";
 import { searchList } from "./src/js/search/search.mjs";
 const loginModal = new bootstrap.Modal("#loginModal");
-const url = `${baseUrl}/listings?_seller=true&_bids=true`;
-const allList = await getData(url);
-const validList = exclExpired(allList);
-displayList(validList);
+const url = `${baseUrl}/listings?_seller=true&_bids=true&_active=true&sort=created&sortOrder=desc`;
+export const allList = await getData(url);
+// const validList = exclExpired(allList);
+displayList(allList);
 
 function status() {
 	if (auth.isLogin()) auth.loginVisibility(true);
@@ -57,8 +57,9 @@ setInterval(timer, 1000);
 
 auth.logoutUser();
 
-searchList(validList);
+searchList(allList);
+// -----------------------------
 
-import { load } from "/src/js/storage/storage.mjs";
-const a = load("profile");
-console.log(a);
+// const date = new Date();
+// date.setDate(date.getDate() + 1);
+// console.log(date);

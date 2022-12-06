@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="/dist/css/style.css" />
 		<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
 		<script src="/index.mjs" type="module"></script>
+		<script src="/nav-action.mjs" type="module"></script>
 		<title>iBuy</title>
 	</head>
 	<body>
@@ -18,7 +19,7 @@
 				<div class="container-fluid">
 					<a class="logo d-flex align-items-center" href="index.html">
 						<div class="ps-3 pe-5 text-light fs-2 fw-bold bg-danger">iBuy</div>
-						<img src="./img/Logo.jpg" class="rounded-circle"></img>
+						<img id="sAvatar" src="./img/Logo.jpg" class="rounded-circle"></img>
 					</a>
 					<button
 						class="navbar-toggler"
@@ -34,16 +35,13 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav mx-auto mb-2 mb-lg-0 d-flex align-items-center">
 							<li class="nav-item mx-auto px-3 mb-2 mb-lg-0">
-								<a class="nav-link border-bottom border-4 border-danger py-0 px-0 text-dark fw-bold" aria-current="page" href="#">Home</a>
+								<a class="nav-link border-bottom border-4 border-danger py-0 px-0 text-dark fw-bold" aria-current="page" href="index.html">Home</a>
 							</li>
 							<li class="nav-item mx-auto px-3 mb-2 mb-lg-0">
 								<a class="nav-link border-bottom border-light border-4 py-0 px-0 text-dark fw-bold" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="/pages/profile.html">Profile</a>
 							</li>
 							<li class="nav-item mx-auto px-3 mb-2 mb-lg-0">
-								<a class="nav-link border-bottom border-light border-4 border-danger py-0 px-0 text-dark fw-bold" aria-current="page" href="#">Home</a>
-							</li>
-							<li class="nav-item mx-auto px-3 mb-2 mb-lg-0">
-								<a class="nav-link border-bottom border-light border-4 border-danger py-0 px-0 text-dark fw-bold" aria-current="page" href="#">Home</a>
+								<a id="sell-modal-toggle" class="nav-link border-bottom border-light border-4 border-danger py-0 px-0 text-dark fw-bold" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal">Sell</a>
 							</li>
 						</ul>
 						<div class="d-flex justify-content-center">
@@ -185,6 +183,74 @@
 								</div>
 								<div class="modal-footer mx-auto">
 									<button type="submit" class="btn btn-primary">Register</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="sellModal" aria-hidden="true" aria-labelledby="sellModalLabel" tabindex="-1">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5 text-dark" id="registerModalLabel">Add listing</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form id="sell-form" class="d-flex flex-column">
+								<div class="modal-body">
+									<div id="err-add-list" class="d-none flex-column align-items-center error text-danger">
+										<p>Error, please try again</p>
+									</div>
+									
+										<div class="mb-3 mx-auto">
+											<label for="title" class="form-label">Product title</label>
+											<input type="text" class="form-control" id="title" required size="25" />
+										</div>
+								
+										<div class="mb-3 mx-auto">
+											<label for="description" class="form-label">Product description</label>
+											<input type="text" class="form-control" id="description"/>
+										</div>
+								
+										<div class="mb-3 mx-auto">
+											<label for="product-image1" class="form-label">Product image main (optional)</label>
+											<input type="text" class="form-control product-image" id="product-image1"/>
+										</div>
+								
+								
+										<div class="mb-3 mx-auto">
+											<label for="product-image2" class="form-label">Product image secondary (optional)</label>
+											<input type="text" class="form-control product-image" id="product-image2"/>
+										</div>
+							
+								
+										<div class="mb-3 mx-auto">
+											<label for="product-image3" class="form-label">Product image secondary (optional)</label>
+											<input type="text" class="form-control product-image" id="product-image3"/>
+									
+									</div>
+								
+										<div class="mb-3 mx-auto">
+											<label for="product-image4" class="form-label">Product image secondary (optional)</label>
+											<input type="text" class="form-control product-image" id="product-image4"/>
+										</div>
+							
+									
+										<div class="mb-3 mx-auto">
+											<label for="product-image5" class="form-label">Product image secondary (optional)</label>
+											<input type="text" class="form-control product-image" id="product-image5"/>
+										</div>
+								
+									
+										<div class="mb-3 mx-auto">
+											<label for="end-date" class="form-label">End auction at:</label>
+											<input type="datetime-local" class="form-control" id="end-date" required/>
+										</div>
+									
+								</div>
+								<div class="modal-footer mx-auto">
+									<button type="submit" class="btn btn-primary">Sell</button>
 								</div>
 							</form>
 						</div>
