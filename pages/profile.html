@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/dist/css/style.css" />
+		<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+		<script src="/profile.mjs" type="module"></script>
+		<script src="/nav-action.mjs" type="module"></script>
+		<title>iBuy</title>
+	</head>
+	<body class="d-flex flex-column ">
+		<header>
+			<nav class="navbar navbar-expand-lg bg-light mb-3">
+				<div class="container-fluid">
+					<a class="logo d-flex align-items-center" href="index.html">
+						<div class="ps-3 pe-5 text-light fs-2 fw-bold bg-danger">iBuy</div>
+						<img id="sAvatar" src="/img/Logo.jpg" class="rounded-circle"></img>
+					</a>
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav mx-auto mb-2 mb-lg-0 d-flex align-items-center">
+							<li class="nav-item mx-auto px-3 mb-2 mb-lg-0">
+								<a class="nav-link border-bottom border-light border-4 py-0 px-0 text-dark fw-bold" aria-current="page" href="/index.html">Home</a>
+							</li>
+							<li class="nav-item mx-auto px-3 mb-2 mb-lg-0">
+								<a class="nav-link border-bottom border-4 border-danger py-0 px-0 text-dark fw-bold" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="">Profile</a>
+							</li>
+							<li class="nav-item mx-auto px-3 mb-2 mb-lg-0">
+								<a id="sell-modal-toggle" class="nav-link border-bottom border-light border-4 border-danger py-0 px-0 text-dark fw-bold" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal">Sell</a>
+							</li>
+						</ul>
+						<div class="d-flex justify-content-center">
+							<button type="button" id="logout-btn" class="d-flex btn btn-danger text-light">
+								Logout
+							</button>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main class="container-fluid d-flex align-items-start justify-content-between flex-wrap flex-grow-1">
+			<section id="personal" class="col-12 col-md-3 bg-light text-dark rounded my-3">
+				<!-- <div class="d-flex flex-column align-items-center p-2">
+          <div id="avatarImg" class="rounded-circle border border-dark border-2"></div>
+          <h4 class="mt-3">Baulibas</h4>
+          <p class="mb-1">email@mail.ru</p>
+          <p class="m-1 mb-5 fw-bold">Balance: <span class="balance text-success">1000 CRD</span></p>
+          <form id="edit-avatar" class="d-flex flex-column border border-dark p-3">
+            <input type="text" class="form-control" id="new-avatar" placeholder="New avatar URL" required />
+            <button type="submit" class="btn btn-primary  m-3">Edit avatar</button>
+          </form>
+        </div> -->
+			</section>
+      <section id="profile-data" class="d-flex flex-column justify-content-around col-12 col-md-8 my-3">
+				<div class="d-flex">
+          <div id="my-listing" class="px-3 py-2 btn-on rounded-top">My listing</div>
+          <div id="my-bids" class="px-3 py-2 btn-off rounded-top">My bids</div>
+        </div>
+        <div id="profile-listings" class="bg-light text-dark px-2">
+        </div>
+        <div>
+          <div>fwdygwedwfecd</div>
+        </div>
+			</section>
+			<div class="modal fade" id="sellModal" aria-hidden="true" aria-labelledby="sellModalLabel" tabindex="-1">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5 text-dark" id="registerModalLabel">Add listing</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form id="sell-form" class="d-flex flex-column">
+								<div class="modal-body">
+									<div id="err-add-list" class="d-none flex-column align-items-center error text-danger">
+										<p>Error, please try again</p>
+									</div>
+									
+										<div class="mb-3 mx-auto">
+											<label for="title" class="form-label">Product title</label>
+											<input type="text" class="form-control" id="title" required size="25" />
+										</div>
+								
+										<div class="mb-3 mx-auto">
+											<label for="description" class="form-label">Product description</label>
+											<input type="text" class="form-control" id="description"/>
+										</div>
+								
+										<div class="mb-3 mx-auto">
+											<label for="product-image1" class="form-label">Product image main (optional)</label>
+											<input type="text" class="form-control product-image" id="product-image1"/>
+										</div>
+								
+								
+										<div class="mb-3 mx-auto">
+											<label for="product-image2" class="form-label">Product image secondary (optional)</label>
+											<input type="text" class="form-control product-image" id="product-image2"/>
+										</div>
+							
+								
+										<div class="mb-3 mx-auto">
+											<label for="product-image3" class="form-label">Product image secondary (optional)</label>
+											<input type="text" class="form-control product-image" id="product-image3"/>
+									
+									</div>
+								
+										<div class="mb-3 mx-auto">
+											<label for="product-image4" class="form-label">Product image secondary (optional)</label>
+											<input type="text" class="form-control product-image" id="product-image4"/>
+										</div>
+							
+									
+										<div class="mb-3 mx-auto">
+											<label for="product-image5" class="form-label">Product image secondary (optional)</label>
+											<input type="text" class="form-control product-image" id="product-image5"/>
+										</div>
+								
+									
+										<div class="mb-3 mx-auto">
+											<label for="end-date" class="form-label">End auction at:</label>
+											<input type="datetime-local" class="form-control" id="end-date" required/>
+										</div>
+									
+								</div>
+								<div class="modal-footer mx-auto">
+									<button type="submit" class="btn btn-primary">Sell</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="container-fluid">
+			<div id="img-wave-bottom"></div>
+			<div class="logo d-flex align-items-center mx-5">
+				<div class="ps-3 pe-5 text-light fs-2 fw-bold bg-danger">iBuy</div>
+				<img src="/img/Logo.jpg" class="rounded-circle"></img>
+			</a>
+		</footer>
+	</body>
+</html>

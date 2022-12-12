@@ -4,7 +4,11 @@
 // Bootstrap styles
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
+$light: #F8F9FA;
+$dark: #222529;
+
 body{
+  min-height: 100vh;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -15,12 +19,12 @@ body{
 }
 
 section{
-  color: white;
+  color: $light;
 }
 
 a{
   text-decoration: none;
-  color: aliceblue;
+  color: $light;
 }
 
 a:hover{
@@ -45,14 +49,17 @@ a:hover{
 
   .item-container{
     width: 19rem;
-    .bg-image{
+      .bg-image{
       min-width: 100%;
       height: 10rem;
+      }
+  }
+    .bg-image{
+      min-width: 10rem;
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
       background-image: url("/img/Logo.jpg");
-    }
     .separator-x{
       border-top: 3px dotted;
     }
@@ -64,4 +71,38 @@ a:hover{
       top: 2rem;
       left: 12%;
     }
+  }
+
+  #avatarImg{
+    height: 100px;
+    width: 100px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  #img-wave-bottom{
+    height: 300px;
+    min-width: 100%;
+    position: relative;
+    top: 100px;
+    background-image: url("/img/wave-down.svg");
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+
+  .btn-on{
+    background-color: $light;
+    color: $dark;
+    border: 1px solid  $light;
+    cursor: pointer;
+  }
+
+  .btn-off{
+    background-color:$dark;
+    color: $light;
+    border: 1px solid $dark;
+    cursor: pointer;
   }

@@ -55,8 +55,6 @@ function timer() {
 }
 setInterval(timer, 1000);
 
-auth.logoutUser();
-
 searchList(allList);
 // -----------------------------
 

@@ -7,6 +7,7 @@
 export async function getData(url, key) {
 	const options = {
 		headers: {
+			"Content-type": "application/json; charset=UTF-8",
 			Authorization: key,
 		},
 	};

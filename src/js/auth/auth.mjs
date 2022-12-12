@@ -85,7 +85,7 @@ export function loginVisibility(isLogin) {
 }
 
 export function isLogin() {
-	if (load("token")) {
+	if (load("profile")) {
 		return true;
 	}
 	return false;
@@ -95,6 +95,6 @@ export function logoutUser() {
 	const logoutBtn = document.getElementById("logout-btn");
 	logoutBtn.addEventListener("click", (event) => {
 		localStorage.clear();
-		location.reload();
+		location.replace("/index.html");
 	});
 }

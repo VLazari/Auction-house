@@ -1,11 +1,10 @@
 import { postData } from "/src/js/api/add_listing.mjs";
-import { baseUrl } from "/src/js/constants.mjs";
-import { load } from "/src/js/storage/storage.mjs";
+import { baseUrl, key } from "/src/js/constants.mjs";
+import { logoutUser } from "/src/js/auth/auth.mjs";
 
 function addListing() {
 	const sellForm = document.getElementById("sell-form");
 	const error = document.getElementById("err-add-list");
-	const key = `Bearer ${load("token")}`;
 
 	sellForm.addEventListener("submit", async (event) => {
 		event.preventDefault();
@@ -32,3 +31,4 @@ function addListing() {
 	});
 }
 addListing();
+logoutUser();

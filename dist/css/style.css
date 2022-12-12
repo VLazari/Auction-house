@@ -10771,6 +10771,7 @@ textarea.form-control-lg {
   }
 }
 body {
+  min-height: 100vh;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -10781,12 +10782,12 @@ body {
 }
 
 section {
-  color: white;
+  color: #F8F9FA;
 }
 
 a {
   text-decoration: none;
-  color: aliceblue;
+  color: #F8F9FA;
 }
 
 a:hover {
@@ -10813,21 +10814,59 @@ a:hover {
 .item-container .bg-image {
   min-width: 100%;
   height: 10rem;
+}
+
+.bg-image {
+  min-width: 10rem;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url("/img/Logo.jpg");
 }
-.item-container .separator-x {
+.bg-image .separator-x {
   border-top: 3px dotted;
 }
-.item-container .separator-y {
+.bg-image .separator-y {
   border-right: 3px dotted;
 }
-.item-container button {
+.bg-image button {
   position: relative;
   top: 2rem;
   left: 12%;
+}
+
+#avatarImg {
+  height: 100px;
+  width: 100px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#img-wave-bottom {
+  height: 300px;
+  min-width: 100%;
+  position: relative;
+  top: 100px;
+  background-image: url("/img/wave-down.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.btn-on {
+  background-color: #F8F9FA;
+  color: #222529;
+  border: 1px solid #F8F9FA;
+  cursor: pointer;
+}
+
+.btn-off {
+  background-color: #222529;
+  color: #F8F9FA;
+  border: 1px solid #222529;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
