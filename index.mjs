@@ -55,8 +55,3 @@ function timer() {
 setInterval(timer, 1000);
 
 searchList(allList);
-// -----------------------------
-
-// const date = new Date();
-// date.setDate(date.getDate() + 1);
-// console.log(date);

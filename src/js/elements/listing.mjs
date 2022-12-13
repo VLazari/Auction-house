@@ -143,7 +143,7 @@ export function profileBids(data) {
 	if (data.length) container.innerHTML = "";
 	data.forEach((item) => {
 		const wrap = createElement("a", "container-fluid d-flex border border-dark rounded p-2 my-2");
-		wrap.href = `/pages/listing.html?id=${item.id}`;
+		wrap.href = `/pages/listing.html?id=${item.listing.id}`;
 		container.appendChild(wrap);
 
 		const divImg = createElement("div", "bg-image border rounded");
@@ -166,7 +166,7 @@ export function profileBids(data) {
 		description.appendChild(expirDiv);
 
 		const bid = createElement("p", "");
-		bid.innerText = `${it.listing.bidderName} : ${item.listing.amount} CRD`;
+		bid.innerText = `${item.bidderName} : ${item.amount} CRD`;
 		description.appendChild(bid);
 
 		const time = new Date(item.listing.endsAt) - new Date();
@@ -303,30 +303,34 @@ export function listingData(data) {
 		selector.id = "bid-amount";
 		bidWrap.appendChild(selector);
 
+		const amount = n ? data.bids[n - 1].amount : 0;
 		let option = createElement("option", "");
 		option.selected = true;
-		option.innerText = data.bids[n - 1].amount + 1 + " CDR";
-		option.value = data.bids[n - 1].amount + 1;
+		option.innerText = amount + 1 + " CDR";
+		option.value = amount + 1;
 		selector.appendChild(option);
 
 		option = createElement("option", "");
-		option.innerText = data.bids[n - 1].amount + 10 + " CDR";
-		option.value = data.bids[n - 1].amount + 10;
+		option.innerText = amount + 10 + " CDR";
+		option.value = amount + 10;
 		selector.appendChild(option);
 
 		option = createElement("option", "");
-		option.innerText = data.bids[n - 1].amount + 50 + " CDR";
-		option.value = data.bids[n - 1].amount + 50;
+		option.innerText = amount + 50 + " CDR";
+		option.value = amount + 50;
 		selector.appendChild(option);
 
 		option = createElement("option", "");
-		option.innerText = data.bids[n - 1].amount + 100 + " CDR";
-		option.value = data.bids[n - 1].amount + 100;
+		option.innerText = amount + 100 + " CDR";
+		option.value = amount + 100;
 		selector.appendChild(option);
 
 		const bidBtn = createElement("button", "btn btn-danger text-light px-5");
 		bidBtn.type = "button";
+		bidBtn.id = "bid-button";
 		bidBtn.innerText = "Place bid";
+		bidBtn.dataset.bsToggle = "modal";
+		bidBtn.dataset.bsTarget = "#confirm-modal";
 		bidWrap.appendChild(bidBtn);
 	}
 

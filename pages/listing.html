@@ -126,6 +126,20 @@
 					</div>
 				</div>
 			</div>
+      <!-- Modal -->
+      <div class="modal fade" id="confirm-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="confirm-modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content d-flex align-items-center">
+            <div class="modal-body">
+              <p id="bid-message" class="fs-5"></p>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+              <button type="button" class="btn btn-secondary border" data-bs-dismiss="modal">Cancel</button>
+              <button id="accept-bid" type="button" class="btn btn-primary bg-success">Accept</button>
+            </div>
+          </div>
+        </div>
+      </div>
 		</main>
 		<footer class="container-fluid">
 			<div id="img-wave-bottom"></div>

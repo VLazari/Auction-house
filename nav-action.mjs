@@ -6,6 +6,11 @@ function addListing() {
 	const sellForm = document.getElementById("sell-form");
 	const error = document.getElementById("err-add-list");
 
+	const dateExpiration = document.getElementById("end-date");
+	const date = new Date();
+	date.setDate(date.getDate() + 1);
+	dateExpiration.min = `${date.toISOString().substr(0, 10)}T00:00`;
+
 	sellForm.addEventListener("submit", async (event) => {
 		event.preventDefault();
 		let mediaImg = [];
