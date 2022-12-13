@@ -7,7 +7,6 @@ import { searchList } from "./src/js/search/search.mjs";
 const loginModal = new bootstrap.Modal("#loginModal");
 const url = `${baseUrl}/listings?_seller=true&_bids=true&_active=true&sort=created&sortOrder=desc`;
 export const allList = await getData(url);
-// const validList = exclExpired(allList);
 displayList(allList);
 
 function status() {

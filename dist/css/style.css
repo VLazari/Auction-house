@@ -10818,10 +10818,10 @@ a:hover {
 
 .bg-image {
   min-width: 10rem;
-  background-position: center;
+  background-image: url("/img/Logo.jpg");
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url("/img/Logo.jpg");
+  background-position: center;
 }
 .bg-image .separator-x {
   border-top: 3px dotted;
@@ -10838,9 +10838,9 @@ a:hover {
 #avatarImg {
   height: 100px;
   width: 100px;
-  background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 #img-wave-bottom {
@@ -10849,9 +10849,9 @@ a:hover {
   position: relative;
   top: 100px;
   background-image: url("/img/wave-down.svg");
-  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   z-index: -1;
 }
 
@@ -10867,6 +10867,24 @@ a:hover {
   color: #F8F9FA;
   border: 1px solid #222529;
   cursor: pointer;
+}
+
+#image-main {
+  min-width: 100%;
+  min-height: 300px;
+  background-image: url("/img/Logo.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.image-preview {
+  min-width: 15%;
+  min-height: 100px;
+  background-image: url("/img/Logo.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /*# sourceMappingURL=style.css.map */

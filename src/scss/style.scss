@@ -4,6 +4,11 @@
 // Bootstrap styles
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
+@mixin bg-img {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 $light: #F8F9FA;
 $dark: #222529;
 
@@ -56,10 +61,9 @@ a:hover{
   }
     .bg-image{
       min-width: 10rem;
-      background-position: center;
-      background-size: contain;
-      background-repeat: no-repeat;
       background-image: url("/img/Logo.jpg");
+      background-size: contain;
+      @include bg-img;
     .separator-x{
       border-top: 3px dotted;
     }
@@ -76,9 +80,8 @@ a:hover{
   #avatarImg{
     height: 100px;
     width: 100px;
-    background-position: center;
     background-size: contain;
-    background-repeat: no-repeat;
+    @include bg-img;
   }
 
   #img-wave-bottom{
@@ -87,9 +90,8 @@ a:hover{
     position: relative;
     top: 100px;
     background-image: url("/img/wave-down.svg");
-    background-position: center;
-    background-size:cover;
-    background-repeat: no-repeat;
+    background-size: cover;
+    @include bg-img;
     z-index: -1;
   }
 
@@ -105,4 +107,21 @@ a:hover{
     color: $light;
     border: 1px solid $dark;
     cursor: pointer;
+  }
+
+///////
+  #image-main{
+    min-width: 100%;
+    min-height: 300px;
+    background-image: url("/img/Logo.jpg");
+    background-size: contain;
+    @include bg-img;
+  }
+
+  .image-preview{
+    min-width: 15%;
+    min-height: 100px;
+    background-image: url("/img/Logo.jpg");
+    background-size: contain;
+    @include bg-img;
   }

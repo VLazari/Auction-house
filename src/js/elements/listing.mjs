@@ -232,3 +232,129 @@ export function profileBuild() {
 	button.innerText = "Edit avatar";
 	form.appendChild(button);
 }
+
+export function listingImg(data) {
+	const container = document.getElementById("product-img");
+	if (data.media) {
+		container.innerHTML = "";
+
+		const mainImg = createElement("div", "my-2");
+		mainImg.id = "image-main";
+		mainImg.style.backgroundImage = `url("${data.media[0]}")`;
+		container.appendChild(mainImg);
+	}
+	if (data.media.length > 1) {
+		const altImg = createElement("div", "d-flex justify-content-around p-2");
+		container.appendChild(altImg);
+
+		data.media.forEach((img) => {
+			const image = createElement("div", "image-preview");
+			image.style.cursor = "pointer";
+			image.style.backgroundImage = `url("${img})`;
+			altImg.appendChild(image);
+		});
+	}
+}
+
+export function listingData(data) {
+	const container = document.getElementById("product-data");
+	container.innerHTML = "";
+
+	const wrap = createElement("div", "bg-light text-dark");
+	container.appendChild(wrap);
+
+	const title = createElement("h1", "m-3");
+	title.innerText = data.title;
+	wrap.appendChild(title);
+
+	const description = createElement("h3", "m-3");
+	description.innerText = data.description;
+	wrap.appendChild(description);
+
+	const seller = createElement("p", "mx-3 fst-italic");
+	seller.innerText = `Sold by: ${data.seller.name}`;
+	wrap.appendChild(seller);
+
+	const time = new Date(data.endsAt) - new Date();
+	const n = data.bids.length;
+	let style = "";
+
+	const expirDiv = createElement("div", "d-flex align-items-center text-danger mx-3");
+	const bidder = createElement("p", "mx-3 mb-0");
+	const bidderName = createElement("p", "mx-4 fw-bold");
+	bidderName.innerText = n === 0 ? " - " : data.bids[n - 1].bidderName;
+	const bidAmount = createElement("span", "fs-5 fw-bold text-danger");
+	bidAmount.innerText = n === 0 ? " 0 " : ` ${data.bids[n - 1].amount} CRD`;
+	const expir = createElement("h6", "text-center mt-2 text-dark");
+	let bidWrap = "";
+
+	if (time < 0) {
+		expir.innerText = "Expired on: ";
+		bidder.innerText = n === 0 ? "No bids" : "Winning bid: ";
+		style = "mx-2 text-danger";
+		bidWrap = createElement("div", "d-none");
+	} else {
+		expir.innerText = "Ends on: ";
+		bidder.innerText = n === 0 ? "No bids" : "Highest bid: ";
+		style = "mx-2 text-success";
+		bidWrap = createElement("div", "d-flex justify-content-center py-3 border m-1");
+
+		const selector = createElement("select", "form-select w-25 mx-3");
+		selector.id = "bid-amount";
+		bidWrap.appendChild(selector);
+
+		let option = createElement("option", "");
+		option.selected = true;
+		option.innerText = data.bids[n - 1].amount + 1 + " CDR";
+		option.value = data.bids[n - 1].amount + 1;
+		selector.appendChild(option);
+
+		option = createElement("option", "");
+		option.innerText = data.bids[n - 1].amount + 10 + " CDR";
+		option.value = data.bids[n - 1].amount + 10;
+		selector.appendChild(option);
+
+		option = createElement("option", "");
+		option.innerText = data.bids[n - 1].amount + 50 + " CDR";
+		option.value = data.bids[n - 1].amount + 50;
+		selector.appendChild(option);
+
+		option = createElement("option", "");
+		option.innerText = data.bids[n - 1].amount + 100 + " CDR";
+		option.value = data.bids[n - 1].amount + 100;
+		selector.appendChild(option);
+
+		const bidBtn = createElement("button", "btn btn-danger text-light px-5");
+		bidBtn.type = "button";
+		bidBtn.innerText = "Place bid";
+		bidWrap.appendChild(bidBtn);
+	}
+
+	wrap.appendChild(bidder);
+	wrap.appendChild(bidderName);
+	bidderName.appendChild(bidAmount);
+	wrap.appendChild(expirDiv);
+	expirDiv.appendChild(expir);
+
+	const date = createElement("span", style);
+	date.innerText = new Date(data.endsAt).toLocaleString();
+	expirDiv.appendChild(date);
+
+	wrap.appendChild(bidWrap);
+
+	const bidders = createElement("div", "p-3 my-3 border");
+	container.appendChild(bidders);
+
+	const allBids = createElement("h4", "text-center");
+	if (n === 0) {
+		allBids.innerText = "No bids were made";
+	} else {
+		allBids.innerText = "All bids:";
+		data.bids.forEach((bid) => {
+			const biddersName = createElement("p", "text-start fs-6");
+			biddersName.innerText = ` - ${bid.bidderName} : ${bid.amount} CRD`;
+			allBids.appendChild(biddersName);
+		});
+	}
+	bidders.appendChild(allBids);
+}
