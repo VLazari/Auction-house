@@ -20,7 +20,7 @@ export function displayList(data) {
 		description.innerText = item.title;
 		divWrap.appendChild(description);
 
-		const borderX = createElement("div", "separator-x col-11 mx-auto my-3 border-dark");
+		const borderX = createElement("hr", "col-11 mx-auto my-2 border-dark");
 		divWrap.appendChild(borderX);
 
 		const divData = createElement("div", "d-flex justify-content-between");
@@ -43,7 +43,7 @@ export function displayList(data) {
 		divData.appendChild(divName);
 
 		const pName = createElement("div", "m-2");
-		pName.innerText = "Bider:";
+		pName.innerText = "Bidder:";
 		divName.appendChild(pName);
 
 		const name = createElement("div", "m-2  text-danger fw-bold");
@@ -94,11 +94,11 @@ export function profileListings(data) {
 </div>`;
 	if (data.listings.length) container.innerHTML = "";
 	data.listings.forEach((item) => {
-		const wrap = createElement("a", "container-fluid d-flex border border-dark rounded p-2 my-2");
+		const wrap = createElement("a", "container-fluid d-flex flex-wrap border border-dark rounded p-2 my-2");
 		wrap.href = `/pages/listing.html?id=${item.id}`;
 		container.appendChild(wrap);
 
-		const divImg = createElement("div", "bg-image border rounded");
+		const divImg = createElement("div", "bg-image border rounded col-11 col-sm-3 mx-auto mx-md-0");
 		const img = item.media[0] ? item.media[0] : "/img/Logo.jpg";
 		divImg.style.backgroundImage = `url(${img})`;
 		wrap.appendChild(divImg);
@@ -142,23 +142,23 @@ export function profileBids(data) {
 </div>`;
 	if (data.length) container.innerHTML = "";
 	data.forEach((item) => {
-		const wrap = createElement("a", "container-fluid d-flex border border-dark rounded p-2 my-2");
+		const wrap = createElement("a", "container-fluid d-flex flex-wrap border border-dark rounded p-2 my-2");
 		wrap.href = `/pages/listing.html?id=${item.listing.id}`;
 		container.appendChild(wrap);
 
-		const divImg = createElement("div", "bg-image border rounded");
+		const divImg = createElement("div", "bg-image border rounded col-11 col-sm-3 mx-auto mx-md-0");
 		const img = item.listing.media[0] ? item.listing.media[0] : "/img/Logo.jpg";
 		divImg.style.backgroundImage = `url(${img})`;
 		wrap.appendChild(divImg);
 
-		const description = createElement("div", "m-2 mx-5 text-dark");
+		const description = createElement("div", "m-2 mx-5 text-dark col-11 col-sm-7");
 		wrap.appendChild(description);
 
 		const title = createElement("h5", "my-3");
 		title.innerText = item.listing.title;
 		description.appendChild(title);
 
-		const describe = createElement("p", "");
+		const describe = createElement("p", "text-wrap");
 		describe.innerText = item.listing.description;
 		description.appendChild(describe);
 
@@ -299,7 +299,7 @@ export function listingData(data) {
 		style = "mx-2 text-success";
 		bidWrap = createElement("div", "d-flex justify-content-center py-3 border m-1");
 
-		const selector = createElement("select", "form-select w-25 mx-3");
+		const selector = createElement("select", "form-select w-50 w-md-25 me-3");
 		selector.id = "bid-amount";
 		bidWrap.appendChild(selector);
 

@@ -10818,6 +10818,7 @@ a:hover {
 
 .bg-image {
   min-width: 10rem;
+  min-height: 8rem;
   background-image: url("/img/Logo.jpg");
   background-size: contain;
   background-repeat: no-repeat;

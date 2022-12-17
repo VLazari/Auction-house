@@ -54,4 +54,4 @@ function timer() {
 }
 setInterval(timer, 1000);
 
-searchList(allList);
+setInterval(searchList(allList), 1000);
