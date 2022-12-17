@@ -48,7 +48,7 @@ This list covers libraries and services that have been vetted by the company and
 
 ### CSS processors
 [x] SASS/SCSS
-[ ] PostCSS
+[] PostCSS
 
 ### CSS frameworks
 [x] Bootstrap (>5)
