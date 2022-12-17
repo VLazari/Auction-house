@@ -4,7 +4,7 @@ import { displayList } from "/src/js/elements/listing.mjs";
 import { getData } from "/src/js/api/get_listing.mjs";
 import { countdown } from "/src/js/timer.mjs";
 import { searchList } from "./src/js/search/search.mjs";
-import { bootstrap } from "/node_modules/bootstrap/dist/js/*.js";
+// import { bootstrap } from "/node_modules/bootstrap/dist/js/*.js";
 const loginModal = new bootstrap.Modal("#loginModal");
 const url = `${baseUrl}/listings?_seller=true&_bids=true&_active=true&sort=created&sortOrder=desc`;
 export const allList = await getData(url);
