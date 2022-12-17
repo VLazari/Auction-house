@@ -47,23 +47,23 @@ A hosted application demo link
 This list covers libraries and services that have been vetted by the company and approved for use.
 
 ### CSS processors
-[x] SASS/SCSS
-[] PostCSS
+- [x] SASS/SCSS
+- [ ] PostCSS
 
 ### CSS frameworks
-[x] Bootstrap (>5)
-[ ] Tailwind (>3)
-[ ] MUI (>5)
+- [x] Bootstrap (>5)
+- [ ] Tailwind (>3)
+- [ ] MUI (>5)
 
 ### Hosting services
-[ ] GitHub Pages
-[x] Netlify
+- [ ] GitHub Pages
+- [x] Netlify
 
 ### Design applications
-[x] Adobe XD
-[ ] Figma
-[ ] Sketch
+- [x] Adobe XD
+- [ ] Figma
+- [ ] Sketch
 
 ### Planning applications
-[ ] Trello
-[x] GitHub Projects
+- [ ] Trello
+- [x] GitHub Projects
