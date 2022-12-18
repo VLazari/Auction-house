@@ -1,7 +1,7 @@
 {
   "name": "auction-house",
   "version": "1.0.1",
-  "description": "",
+  "description": "Auction site for semester project",
   "main": "index.js",
   "scripts": {
     "build": "sass src/scss:dist/css",

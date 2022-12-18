@@ -55,5 +55,3 @@ function timer() {
 setInterval(timer, 1000);
 
 setInterval(searchList(allList), 1000);
-
-console.log("aaaaaaaaa");
