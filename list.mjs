@@ -55,5 +55,3 @@ function bidConfirmation() {
 	});
 }
 bidConfirmation();
-
-console.log("aaaaaaaaa");
