@@ -4,7 +4,7 @@ import { displayList } from "/src/js/elements/listing.mjs";
 import { getData } from "/src/js/api/get_listing.mjs";
 import { countdown } from "/src/js/timer.mjs";
 import { searchList } from "./src/js/search/search.mjs";
-const loginModal = document.getElementById("loginModal");
+const loginModal = new bootstrap.Modal("#loginModal");
 const url = `${baseUrl}/listings?_seller=true&_bids=true&_active=true&sort=created&sortOrder=desc`;
 export const allList = await getData(url);
 displayList(allList);
@@ -16,13 +16,13 @@ status();
 
 function regUser() {
 	const register = document.getElementById("register-form");
-	const registerModal = document.getElementById("registerModal");
+	const registerModal = new bootstrap.Modal("#registerModal");
 	register.addEventListener("submit", (event) => {
 		event.preventDefault();
 		const isRegister = auth.registerUser();
 		if (isRegister) {
-			registerModal.classList.remove("show");
-			loginModal.classList.add("show");
+			registerModal.hide();
+			loginModal.show();
 		}
 	});
 }
@@ -40,7 +40,7 @@ function logUser() {
 			loginError.classList.remove("d-none");
 		} else {
 			auth.loginVisibility(true);
-			loginModal.classList.remove("show");
+			loginModal.hide();
 		}
 	});
 }
