@@ -5,13 +5,13 @@ export function displayList(data) {
 	const container = document.getElementById("listings");
 	container.innerHTML = "";
 	data.forEach((item) => {
-		const divWrap = createElement("a", "item-container border border-dark rounded p-2 my-5 d-flex flex-column bg-secondary text-dark");
+		const divWrap = createElement("a", "item-container rounded p-2 my-5 d-flex flex-column bg-secondary text-dark");
 		divWrap.href = `/pages/listing.html?id=${item.id}`;
 		divWrap.dataset.bsToggle = "modal";
 		divWrap.dataset.bsTarget = "#loginModal";
 		container.appendChild(divWrap);
 
-		const divImg = createElement("div", "bg-image bg-dark rounded");
+		const divImg = createElement("div", "bg-image bg-white rounded");
 		const img = item.media[0] ? item.media[0] : "/img/Logo.jpg";
 		divImg.style.backgroundImage = `url(${img})`;
 		divWrap.appendChild(divImg);
@@ -46,7 +46,7 @@ export function displayList(data) {
 		pName.innerText = "Bidder:";
 		divName.appendChild(pName);
 
-		const name = createElement("div", "m-2  text-danger fw-bold");
+		const name = createElement("div", "m-2  text-dark fw-bold");
 		name.innerText = n === 0 ? "No bids" : item.bids[n - 1].bidderName;
 		divName.appendChild(name);
 
@@ -57,28 +57,28 @@ export function displayList(data) {
 		timeText.innerText = "Ends in:";
 		divWrap.appendChild(timeText);
 
-		const divTimer = createElement("div", "timer d-flex justify-content-around text-danger p-2");
+		const divTimer = createElement("div", "timer d-flex justify-content-around text-success p-2");
 		divTimer.dataset.expDate = item.endsAt;
 		divWrap.appendChild(divTimer);
 
 		const days = createElement("span", "");
 		divTimer.appendChild(days);
 
-		const separator1 = createElement("span", "");
+		const separator1 = createElement("span", "text-dark");
 		separator1.innerText = ":";
 		divTimer.appendChild(separator1);
 
 		const hours = createElement("span", "");
 		divTimer.appendChild(hours);
 
-		const separator2 = createElement("span", "");
+		const separator2 = createElement("span", "text-dark");
 		separator2.innerText = ":";
 		divTimer.appendChild(separator2);
 
 		const minutes = createElement("span", "");
 		divTimer.appendChild(minutes);
 
-		const separator3 = createElement("span", "");
+		const separator3 = createElement("span", "text-dark");
 		separator3.innerText = ":";
 		divTimer.appendChild(separator3);
 
@@ -349,7 +349,7 @@ export function listingData(data) {
 	const bidders = createElement("div", "p-3 my-3 border");
 	container.appendChild(bidders);
 
-	const allBids = createElement("h4", "text-center");
+	const allBids = createElement("h4", "text-center text-dark");
 	if (n === 0) {
 		allBids.innerText = "No bids were made";
 	} else {
