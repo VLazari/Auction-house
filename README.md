@@ -1,69 +1,69 @@
 # Auction-house
 
-## Goal
-To take the skills learned over the past three semesters and create an auction website.
+![image](/img/Auction-house.png)
 
-## Brief
-An auction site is looking to launch a website where users can add items to be bid on and bid on items other users have put up for auction.
+Auction-house is a web application that allows users to participate in auctions for various items. Users can create listings, place bids, and manage their credits on the platform.
 
-When a new user joins the website, they are given 1000 credits to use on the site. They can get credits by selling items and use credit by buying items. Non-registered users can search through the listings, but only registered users can make bids on listings.
+## Description
 
-## Requirements
-All API functionality is managed by an existing application. This project only covers the front-end application for the API.
+The Auction-house project is a web application designed to provide an auction platform for users. It allows registered users to create listings for items, specify a deadline for bidding, and provide descriptions and media galleries for each listing. Other registered users can place bids on the listings using their available credits. The application also supports features like user registration, login, and the ability to update avatars.
 
-##User stories
-The client has specified the following requirements in the form of User Stories:
+This project focuses on the frontend implementation of the Auction-house application. The API functionality is managed by an existing application, and this project interacts with that API to provide the user interface and functionality.
 
-- A user with a stud.noroff.no email may register
-- A registered user may login
-- A registered user may logout
-- A registered user may update their avatar
-- A registered user may view their total credit
-- A registered user may create a Listing with a title, deadline date, media gallery and description
-- A registered user may add a Bid to another user’s Listing
-- A registered user may view Bids made on a Listing
-- A registered user may use credit to make a Bid on another user’s Listing
-- An unregistered user may search through Listings
+### Features
 
-## Technical restrictions
-The company CTO has set the following technical restrictions:
+- User registration and login
+- User avatar management
+- Listing creation with title, deadline date, media gallery, and description
+- Bidding on other users' listings
+- Viewing bids made on a listing
+- Credit management for users
 
-Must use an approved CSS Framework
-Must be hosted on an approved Static Host
-Must use an approved Design Application
-Must use an approved Planning Application
+## Built With
 
-## Required links
-The Product Owner has requested links to the following:
+- HTML
+- SASS
+- Bootstrap
+- Vanilla Javascript
 
-A Gantt chart for project timing
-A design prototype
-A style guide
-A kanban project board
-A repository link
-A hosted application demo link
+## Getting Started
 
-## Approved resources
-This list covers libraries and services that have been vetted by the company and approved for use.
+### Installing
 
-### CSS processors
-- [x] SASS/SCSS
-- [ ] PostCSS
+1. Clone the repo:
 
-### CSS frameworks
-- [x] Bootstrap (>5)
-- [ ] Tailwind (>3)
-- [ ] MUI (>5)
+```bash
+git clone https://github.com/VLazari/Auction-house.git
+```
 
-### Hosting services
-- [ ] GitHub Pages
-- [x] Netlify
+2. Install the dependencies:
 
-### Design applications
-- [x] Adobe XD
-- [ ] Figma
-- [ ] Sketch
+```
+npm install
+```
 
-### Planning applications
-- [ ] Trello
-- [x] GitHub Projects
+### Running
+
+Build the project:
+
+```bash
+npm run build
+```
+
+## Contributing
+
+Contributions are welcome! If you have any suggestions or improvements, feel free to open an issue or create a pull request.
+
+## Contact
+
+For any inquiries or questions, you can reach me via the following:
+
+[My LinkedIn page](www.linkedin.com/in/viorel-lazari)
+
+## Acknowledgments
+
+I would like to acknowledge the following resources for their contributions to this project:
+
+- Noroff School of Applied Science for providing the Online Shop API. The API served as the data source for this eCom store project, enabling the retrieval of product information, reviews, and more.
+
+I am grateful to Noroff School of Applied Science for making this API available, allowing me to apply my knowledge of React to build this project.
